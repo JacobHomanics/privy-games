@@ -12,6 +12,9 @@ public class Staff : MonoBehaviour
     [Header("Fireball Settings")]
     public GameObject fireballPrefab;
     public Transform fireballSpawnPoint;
+
+    public string[] damageableTo;
+
     // public float fireballSpeed = 15f;
     // public float fireballDamage = 30f;
 
@@ -71,6 +74,8 @@ public class Staff : MonoBehaviour
         if (fireballScript != null)
         {
             fireballScript.direction = direction;
+            fireballScript.damageableTo = damageableTo;
+
             // fireballScript.speed = fireballSpeed;
             // fireballScript.damage = fireballDamage;
         }

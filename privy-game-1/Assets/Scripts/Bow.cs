@@ -13,6 +13,9 @@ public class Bow : MonoBehaviour
     public GameObject arrowPrefab;
     public Transform spawnPoint;
 
+    public string[] damageableTo;
+
+
     void Update()
     {
         cooldownTimeLeft -= Time.deltaTime;
@@ -57,6 +60,7 @@ public class Bow : MonoBehaviour
         if (fireballScript != null)
         {
             fireballScript.direction = direction;
+            fireballScript.damageableTo = damageableTo;
             // fireballScript.speed = fireballSpeed;
             // fireballScript.damage = fireballDamage;
         }

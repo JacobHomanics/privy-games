@@ -11,6 +11,9 @@ public class Fireball : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    public string[] damageableTo;
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -35,12 +38,20 @@ public class Fireball : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         // Check if we hit an enemy
-        Enemy enemy = collision.GetComponent<Enemy>();
+        var enemy = collision.GetComponent<HealthEntity>();
         if (enemy != null)
         {
-            enemy.Health -= damage;
-            Destroy(gameObject);
-            return;
+            for (int i = 0; i < damageableTo.Length; i++)
+            {
+                if (enemy.CompareTag(damageableTo[i]))
+                {
+                    enemy.Health -= damage;
+
+                    Destroy(gameObject);
+                    return;
+                }
+            }
+
         }
 
     }

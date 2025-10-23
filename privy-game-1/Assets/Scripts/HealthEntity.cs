@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class Enemy : MonoBehaviour
+public class HealthEntity : MonoBehaviour
 {
     public float maxHealth;
 
