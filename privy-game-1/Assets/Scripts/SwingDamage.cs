@@ -15,7 +15,7 @@ public class SwingDamage : MonoBehaviour
             {
                 if (enemy.CompareTag(damageableTo[i]))
                 {
-                    enemy.Health -= damage;
+                    enemy.SubtractHealth(damage);
                 }
             }
         }

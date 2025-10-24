@@ -6,37 +6,31 @@ public class HealthEntity : MonoBehaviour
 {
     public float maxHealth;
 
-    private float health;
+    [SerializeField] private float health;
+
+    public float getHealth()
+    {
+        return health;
+    }
 
     public UnityEvent onZero;
 
-    public float Health
+    private void ModifyHealth(float newHealth)
     {
-        get
+        health = newHealth;
+        if (health <= 0)
         {
-            return health;
-        }
-        set
-        {
-            health = value;
-            if (health <= 0)
-            {
-                Destroy(gameObject);
-                onZero.Invoke();
-            }
+            onZero.Invoke();
         }
     }
 
-    public Slider slider;
-
-    void Start()
+    public void AddHealth(float amount)
     {
-        Health = maxHealth;
+        ModifyHealth(health + amount);
     }
 
-    void Update()
+    public void SubtractHealth(float amount)
     {
-        slider.value = health;
-        slider.maxValue = maxHealth;
+        ModifyHealth(health - amount);
     }
 }

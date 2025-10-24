@@ -10,6 +10,23 @@ public class EnemySpawner : MonoBehaviour
     public float innerRadius;
     public float outerRadius;
 
+    public float minSpawnTime;
+    public float maxSpawnTime;
+
+    public float spawnTimeLeft;
+
+
+    void Update()
+    {
+        spawnTimeLeft -= Time.deltaTime;
+
+        if (spawnTimeLeft <= 0)
+        {
+            SpawnObject();
+            spawnTimeLeft = Random.Range(minSpawnTime, maxSpawnTime);
+        }
+    }
+
     [ContextMenu("Spawn Object")]
     public void SpawnObject()
     {

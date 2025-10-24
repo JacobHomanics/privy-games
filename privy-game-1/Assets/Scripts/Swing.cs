@@ -9,13 +9,13 @@ public class Swing : MonoBehaviour
 
     void Update()
     {
-        cooldownTimeLeft -= Time.deltaTime;
+        // cooldownTimeLeft -= Time.deltaTime;
 
-        if (Input.GetMouseButtonDown(0) && cooldownTimeLeft <= 0)
-        {
-            anim.Play("Swing");
-            cooldownTimeLeft = cooldownDuration;
-        }
+        // if (Input.GetMouseButtonDown(0) && cooldownTimeLeft <= 0)
+        // {
+        //     anim.Play("Swing");
+        //     cooldownTimeLeft = cooldownDuration;
+        // }
     }
 
 }

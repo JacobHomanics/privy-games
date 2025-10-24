@@ -2,21 +2,11 @@ using UnityEngine;
 
 public class Staff : MonoBehaviour
 {
-    [Header("Animation")]
-    public Animator anim;
-
-    [Header("Cooldown Settings")]
-    public float cooldownTimeLeft;
-    public float cooldownDuration = 1f;
-
     [Header("Fireball Settings")]
     public GameObject fireballPrefab;
     public Transform fireballSpawnPoint;
 
     public string[] damageableTo;
-
-    // public float fireballSpeed = 15f;
-    // public float fireballDamage = 30f;
 
     void Start()
     {
@@ -30,23 +20,7 @@ public class Staff : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        cooldownTimeLeft -= Time.deltaTime;
-
-        if (Input.GetMouseButtonDown(0) && cooldownTimeLeft <= 0)
-        {
-            CastFireball();
-            cooldownTimeLeft = cooldownDuration;
-        }
-    }
-
-    void CastFireball()
-    {
-        LaunchFireball();
-    }
-
-    void LaunchFireball()
+    public void LaunchFireball()
     {
         if (fireballPrefab == null)
         {
