@@ -2,15 +2,21 @@ using UnityEngine;
 
 public class EnemyMovementController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public Rigidbody2D rb;
+    public float speed = 0.1f;
+
+    public Transform t;
+
     void Start()
     {
-        
+        GameObject.FindGameObjectWithTag("Player");
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        // Set the velocity based on direction and speed
+        rb.linearVelocity = t.right.normalized * speed;
+
     }
+
 }

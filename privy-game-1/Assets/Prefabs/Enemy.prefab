@@ -274,6 +274,8 @@ GameObject:
   - component: {fileID: 1609529474617522355}
   - component: {fileID: 1080404951591572128}
   - component: {fileID: 7950422395495314130}
+  - component: {fileID: 1170276084343024821}
+  - component: {fileID: 5968616809584330803}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
@@ -326,6 +328,48 @@ MonoBehaviour:
   - {fileID: 5669373389593937225}
   - {fileID: 1995784729178629934}
   - {fileID: 2134704256695704702}
+--- !u!114 &1170276084343024821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2406101378657086719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9658a5269aa434f60a7795809762bfe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 5968616809584330803}
+  speed: 0.1
+  t: {fileID: 6654626857513634533}
+--- !u!50 &5968616809584330803
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2406101378657086719}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 100
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &3934976515875075282
 GameObject:
   m_ObjectHideFlags: 0
@@ -836,7 +880,6 @@ GameObject:
   - component: {fileID: 6654626857513634533}
   - component: {fileID: 1724567651158002115}
   - component: {fileID: 3275105230358314355}
-  - component: {fileID: 3576110589011811140}
   - component: {fileID: 494246135739311088}
   - component: {fileID: 6837175260144350159}
   m_Layer: 6
@@ -931,38 +974,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9998aec0353a24224aca9e3e6590c33a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookSpeed: 0.5
+  lookSpeed: 2
   smoothLook: 1
   invertY: 0
   showDebugInfo: 0
   drawLookDirection: 1
---- !u!50 &3576110589011811140
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6176708334227750596}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 100
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!58 &494246135739311088
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1375,7 +1391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4146992751661857447, guid: b3976bbac7c0f40fabfa2997ff6f9cc3, type: 3}
       propertyPath: _value.y
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7304624512339234846, guid: b3976bbac7c0f40fabfa2997ff6f9cc3, type: 3}
       propertyPath: OnDurationElapsed.m_PersistentCalls.m_Calls.Array.size
@@ -1516,7 +1532,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4146992751661857447, guid: b3976bbac7c0f40fabfa2997ff6f9cc3, type: 3}
       propertyPath: _value.y
-      value: 1
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7304624512339234846, guid: b3976bbac7c0f40fabfa2997ff6f9cc3, type: 3}
       propertyPath: OnDurationElapsed.m_PersistentCalls.m_Calls.Array.size
@@ -1661,7 +1677,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4146992751661857447, guid: b3976bbac7c0f40fabfa2997ff6f9cc3, type: 3}
       propertyPath: _value.y
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7304624512339234846, guid: b3976bbac7c0f40fabfa2997ff6f9cc3, type: 3}
       propertyPath: OnDurationElapsed.m_PersistentCalls.m_Calls.Array.size
