@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import type { NextPage } from "next";
-import { useAccount, useWriteContract } from "wagmi";
+import { useAccount } from "wagmi";
 import { Address } from "~~/components/scaffold-eth";
 import { useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
 import { useScaffoldReadContract } from "~~/hooks/scaffold-eth";
@@ -20,8 +20,6 @@ const Home: NextPage = () => {
   const { writeContractAsync: writeSwordContractAsync } = useScaffoldWriteContract({ contractName: "Sword" });
   const { writeContractAsync: writeStaffContractAsync } = useScaffoldWriteContract({ contractName: "Staff" });
   const { writeContractAsync: writeBowContractAsync } = useScaffoldWriteContract({ contractName: "Bow" });
-
-  const { writeContractAsync } = useWriteContract();
 
   // Read tokenURI for token 0 from each contract
   const { data: swordTokenURI } = useScaffoldReadContract({
@@ -40,6 +38,24 @@ const Home: NextPage = () => {
     contractName: "Bow",
     functionName: "tokenURI",
     args: [0n],
+  });
+
+  const { data: staffBalance } = useScaffoldReadContract({
+    contractName: "Staff",
+    functionName: "balanceOf",
+    args: [connectedAddress],
+  });
+
+  const { data: bowBalance } = useScaffoldReadContract({
+    contractName: "Bow",
+    functionName: "balanceOf",
+    args: [connectedAddress],
+  });
+
+  const { data: swordBalance } = useScaffoldReadContract({
+    contractName: "Sword",
+    functionName: "balanceOf",
+    args: [connectedAddress],
   });
 
   // Fetch metadata from IPFS URIs
@@ -318,6 +334,74 @@ const Home: NextPage = () => {
                   </div>
                 )}
               </div>
+            </div>
+          </div>
+
+          <div className="flex justify-center items-center space-x-2 flex-col">
+            <p className="my-2 font-medium">Your inventory</p>
+            <div className="flex">
+              {bowBalance && bowBalance > 0 && nftMetadata.Bow ? (
+                <div className="bg-base-200 p-4 rounded-lg">
+                  <h3 className="font-bold text-lg mb-2 text-center">Bow</h3>
+                  <p className="text-center">{bowBalance}</p>
+                  {getImageUrl(nftMetadata.Bow) && (
+                    <div className="mb-3">
+                      <Image
+                        src={getImageUrl(nftMetadata.Bow)}
+                        alt="Bow NFT"
+                        className="w-32 h-32 object-cover mx-auto rounded-lg border-2 border-base-300"
+                        onError={e => {
+                          e.currentTarget.style.display = "none";
+                        }}
+                        width={128}
+                        height={128}
+                      />
+                    </div>
+                  )}
+                </div>
+              ) : null}
+
+              {staffBalance && staffBalance > 0 && nftMetadata.Staff ? (
+                <div className="bg-base-200 p-4 rounded-lg">
+                  <h3 className="font-bold text-lg mb-2 text-center">Staff</h3>
+                  <p className="text-center">{staffBalance}</p>
+                  {getImageUrl(nftMetadata.Staff) && (
+                    <div className="mb-3">
+                      <Image
+                        src={getImageUrl(nftMetadata.Staff)}
+                        alt="Staff NFT"
+                        className="w-32 h-32 object-cover mx-auto rounded-lg border-2 border-base-300"
+                        onError={e => {
+                          e.currentTarget.style.display = "none";
+                        }}
+                        width={128}
+                        height={128}
+                      />
+                    </div>
+                  )}
+                </div>
+              ) : null}
+
+              {swordBalance && swordBalance > 0 && nftMetadata.Sword ? (
+                <div className="bg-base-200 p-4 rounded-lg">
+                  <h3 className="font-bold text-lg mb-2 text-center">Sword</h3>
+                  <p className="text-center">{swordBalance}</p>
+                  {getImageUrl(nftMetadata.Sword) && (
+                    <div className="mb-3">
+                      <Image
+                        src={getImageUrl(nftMetadata.Sword)}
+                        alt="Sword NFT"
+                        className="w-32 h-32 object-cover mx-auto rounded-lg border-2 border-base-300"
+                        onError={e => {
+                          e.currentTarget.style.display = "none";
+                        }}
+                        width={128}
+                        height={128}
+                      />
+                    </div>
+                  )}
+                </div>
+              ) : null}
             </div>
           </div>
         </div>
