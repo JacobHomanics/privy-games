@@ -1,6 +1,18 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "olive-capitalist-mule-825.mypinata.cloud",
+      },
+      {
+        protocol: "https",
+        hostname: "ipfs.io",
+      },
+    ],
+  },
   reactStrictMode: true,
   devIndicators: false,
   typescript: {

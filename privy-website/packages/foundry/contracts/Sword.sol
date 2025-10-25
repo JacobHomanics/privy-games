@@ -9,6 +9,6 @@ import "forge-std/console.sol";
 contract Sword is BaseERC721("Sword", "SWD") {
     function tokenURI(uint256) public pure override returns (string memory) {
         return
-            "ipfs://bafkreidvjcd7nkukaipj3fykymd4glonrseqvhvqx4hav5de3otrpkn7yq";
+            "https://olive-capitalist-mule-825.mypinata.cloud/ipfs/bafkreif5qjdvgfnimlqgzgaatp6ayktcn2m6z56hqgqwaybm6ijj2wn7x4";
     }
 }

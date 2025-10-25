@@ -2870,7 +2870,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@privy-io/react-auth@npm:latest":
+"@privy-io/react-auth@npm:^3.4.1":
   version: 3.4.1
   resolution: "@privy-io/react-auth@npm:3.4.1"
   dependencies:
@@ -2938,6 +2938,18 @@ __metadata:
   version: 0.0.2
   resolution: "@privy-io/urls@npm:0.0.2"
   checksum: 04737485e0d316d58b9c8d53f99d87cf42e314f9b0aeec7008b00f56ab50ad20e8a0e7538ca03c55b0cc21ba2baa548bbe23b308fc470cba56a27149f341cea4
+  languageName: node
+  linkType: hard
+
+"@privy-io/wagmi@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "@privy-io/wagmi@npm:2.0.2"
+  peerDependencies:
+    "@privy-io/react-auth": ^3.0.0
+    react: ">=18"
+    viem: ^2.30.6
+    wagmi: ^2.15.5
+  checksum: 6e069ab92c9361df7be6be5f48b3733491abb056ea32859807c8d19160a7ed39172bad41134329a5d3d7306e0312da9e02c7a9b780631b346b3c46f0aa079104
   languageName: node
   linkType: hard
 
@@ -3396,6 +3408,8 @@ __metadata:
   resolution: "@se-2/nextjs@workspace:packages/nextjs"
   dependencies:
     "@heroicons/react": ~2.1.5
+    "@privy-io/react-auth": ^3.4.1
+    "@privy-io/wagmi": ^2.0.2
     "@rainbow-me/rainbowkit": 2.2.8
     "@tailwindcss/postcss": 4.0.15
     "@tanstack/react-query": ~5.59.15
@@ -13148,7 +13162,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "se-2@workspace:."
   dependencies:
-    "@privy-io/react-auth": latest
     husky: ~9.1.6
     lint-staged: ~13.2.2
   languageName: unknown

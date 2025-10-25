@@ -4,10 +4,12 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { PrivyCustomConnectButton } from "./scaffold-eth/PrivyCustomConnectButton";
 import { usePrivy } from "@privy-io/react-auth";
 import { useLogin } from "@privy-io/react-auth";
 import { Address } from "viem";
 import { hardhat } from "viem/chains";
+import { useSwitchChain } from "wagmi";
 import { Bars3Icon, BugAntIcon } from "@heroicons/react/24/outline";
 import { Balance, FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useOutsideClick, useTargetNetwork } from "~~/hooks/scaffold-eth";
@@ -70,7 +72,13 @@ export const Header = () => {
 
   const { ready } = usePrivy();
 
-  const { login } = useLogin();
+  const { switchChain } = useSwitchChain();
+
+  const { login } = useLogin({
+    onComplete: () => {
+      switchChain?.({ chainId: 8453 });
+    },
+  });
   const { authenticated, user, logout } = usePrivy();
 
   return (
@@ -103,7 +111,7 @@ export const Header = () => {
         </ul>
       </div>
       <div className="navbar-end grow mr-4">
-        {ready && !authenticated && (
+        {/* {ready && !authenticated && (
           <button className="btn btn-primary btn-sm" type="button" onClick={() => login()}>
             Login with Privy
           </button>
@@ -116,11 +124,11 @@ export const Header = () => {
             </button>
           </div>
         )}
-        {!ready && <p>"Initializing Privy..."</p>}
+        {!ready && <p>"Initializing Privy..."</p>} */}
 
-        <Balance address={user?.wallet?.address as Address} />
-        {/* <RainbowKitCustomConnectButton />
-        {isLocalNetwork && <FaucetButton />} */}
+        {/* <Balance address={user?.wallet?.address as Address} /> */}
+        <PrivyCustomConnectButton />
+        {isLocalNetwork && <FaucetButton />}
       </div>
     </div>
   );

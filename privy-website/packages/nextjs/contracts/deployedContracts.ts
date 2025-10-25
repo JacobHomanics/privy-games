@@ -7,7 +7,7 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   8453: {
     YourContract: {
-      address: "0xe67987bc088f7c50e980ef0aaab517e9a54d70d6",
+      address: "0xff199a6e1dae51ce17aa489e2c6a67c6e0660581",
       abi: [
         {
           type: "constructor",
@@ -148,10 +148,10 @@ const deployedContracts = {
         },
       ],
       inheritedFunctions: {},
-      deployedOnBlock: 37282403,
+      deployedOnBlock: 37285584,
     },
     Sword: {
-      address: "0xadd1cdb8415196a905ba3747d4875c97b30ec3ce",
+      address: "0x2828d50fe9110bd017de1e539c9c5774f9e93aec",
       abi: [
         {
           type: "function",
@@ -678,10 +678,10 @@ const deployedContracts = {
         },
       ],
       inheritedFunctions: {},
-      deployedOnBlock: 37282403,
+      deployedOnBlock: 37285584,
     },
     Staff: {
-      address: "0x9c8eb84528423a318f5861d0832aaa8afd17ea65",
+      address: "0x9e5e3cd4e648694c8198959f56bd9042429f9372",
       abi: [
         {
           type: "function",
@@ -1208,10 +1208,10 @@ const deployedContracts = {
         },
       ],
       inheritedFunctions: {},
-      deployedOnBlock: 37282403,
+      deployedOnBlock: 37285584,
     },
     Bow: {
-      address: "0x54eb8aed5f816d09769bd56b849e81be1f5437a5",
+      address: "0xf5ac5a90dab2f36e6c6201ee94a7626b9ba90860",
       abi: [
         {
           type: "function",
@@ -1738,7 +1738,7 @@ const deployedContracts = {
         },
       ],
       inheritedFunctions: {},
-      deployedOnBlock: 37282403,
+      deployedOnBlock: 37285584,
     },
   },
 } as const;

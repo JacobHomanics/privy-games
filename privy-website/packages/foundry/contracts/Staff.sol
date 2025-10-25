@@ -9,6 +9,6 @@ import "forge-std/console.sol";
 contract Staff is BaseERC721("Staff", "STF") {
     function tokenURI(uint256) public pure override returns (string memory) {
         return
-            "ipfs://bafkreieqqoztnduknoe2httmob34dfnesnjfyuafqc6vgmoc6hhrkejzvq";
+            "https://olive-capitalist-mule-825.mypinata.cloud/ipfs/bafkreibsyymr4lzyvrqqtkwkympxugn6l3norh4bwnqrznizeblthq7kii";
     }
 }
