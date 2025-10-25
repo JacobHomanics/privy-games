@@ -13,10 +13,10 @@ const Home: NextPage = () => {
   const [activeTab, setActiveTab] = useState<"buy" | "inventory" | "game">("buy");
 
   const { unityProvider } = useUnityContext({
-    loaderUrl: "build/myunityapp.loader.js",
-    dataUrl: "build/myunityapp.data",
-    frameworkUrl: "build/myunityapp.framework.js",
-    codeUrl: "build/myunityapp.wasm",
+    loaderUrl: "build/0.0.4.loader.js",
+    dataUrl: "build/0.0.4.data",
+    frameworkUrl: "build/0.0.4.framework.js",
+    codeUrl: "build/0.0.4.wasm",
   });
 
   const [nftMetadata, setNftMetadata] = useState<{
@@ -419,7 +419,7 @@ const Home: NextPage = () => {
   const renderGamePlayerTab = () => (
     <div className="px-5">
       <h2 className="text-2xl font-bold text-center mb-6">🎮 Game</h2>
-      <Unity unityProvider={unityProvider} />
+      <Unity unityProvider={unityProvider} style={{ width: 763, height: 600 }} />
     </div>
   );
 
