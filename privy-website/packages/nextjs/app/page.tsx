@@ -13,10 +13,10 @@ const Home: NextPage = () => {
   const [activeTab, setActiveTab] = useState<"buy" | "inventory" | "game">("buy");
 
   const { unityProvider } = useUnityContext({
-    loaderUrl: "build/0.0.5.loader.js",
-    dataUrl: "build/0.0.5.data",
-    frameworkUrl: "build/0.0.5.framework.js",
-    codeUrl: "build/0.0.5.wasm",
+    loaderUrl: "unity-build/0.0.6.loader.js",
+    dataUrl: "unity-build/0.0.6.data",
+    frameworkUrl: "unity-build/0.0.6.framework.js",
+    codeUrl: "unity-build/0.0.6.wasm",
   });
 
   const [nftMetadata, setNftMetadata] = useState<{
@@ -430,6 +430,7 @@ const Home: NextPage = () => {
           <h1 className="text-center">
             <span className="block text-2xl mb-2">Welcome to</span>
             <span className="block text-4xl font-bold">Privy Unity Experience</span>
+            <span className="block text-md font-bold">Please give time for things to load.</span>
           </h1>
 
           {/* Tab Navigation */}
