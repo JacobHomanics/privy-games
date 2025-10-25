@@ -2,14 +2,12 @@
 
 // @refresh reset
 import { Balance } from "../Balance";
-import { AddressInfoDropdown } from "../RainbowKitCustomConnectButton/AddressInfoDropdown";
 import { AddressQRCodeModal } from "../RainbowKitCustomConnectButton/AddressQRCodeModal";
+import { AddressInfoDropdown } from "./AddressInfoDropdown";
 import { WrongNetworkDropdown } from "./WrongNetworkDropdown";
 import { useLogin, usePrivy } from "@privy-io/react-auth";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { Address } from "viem";
 import { useAccount, useSwitchChain } from "wagmi";
-import { switchChain } from "wagmi/actions";
 import { useNetworkColor } from "~~/hooks/scaffold-eth";
 import { useTargetNetwork } from "~~/hooks/scaffold-eth/useTargetNetwork";
 import { getBlockExplorerAddressLink } from "~~/utils/scaffold-eth";
@@ -29,6 +27,8 @@ export const PrivyCustomConnectButton = () => {
     },
   });
   const account = useAccount();
+
+  const { user } = usePrivy();
 
   const { ready, authenticated } = usePrivy();
   const connected = ready && authenticated;
@@ -67,7 +67,7 @@ export const PrivyCustomConnectButton = () => {
             </div>
             <AddressInfoDropdown
               address={account.address as Address}
-              displayName={account.address ?? ""}
+              displayName={user?.email?.address ?? ""}
               ensAvatar={undefined}
               blockExplorerAddressLink={blockExplorerAddressLink}
             />

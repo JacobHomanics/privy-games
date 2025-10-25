@@ -2,18 +2,14 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import type { NextPage } from "next";
-import { useAccount, useSwitchChain, useWriteContract } from "wagmi";
-import { switchChain } from "wagmi/actions";
-import { BugAntIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { useAccount, useWriteContract } from "wagmi";
 import { Address } from "~~/components/scaffold-eth";
-import deployedContracts from "~~/contracts/deployedContracts";
 import { useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
 import { useScaffoldReadContract } from "~~/hooks/scaffold-eth";
 
 const Home: NextPage = () => {
-  const { address: connectedAddress, chain } = useAccount();
+  const { address: connectedAddress } = useAccount();
 
   const [nftMetadata, setNftMetadata] = useState<{
     Sword?: any;

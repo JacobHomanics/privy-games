@@ -5,13 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { PrivyCustomConnectButton } from "./scaffold-eth/PrivyCustomConnectButton";
-import { usePrivy } from "@privy-io/react-auth";
-import { useLogin } from "@privy-io/react-auth";
-import { Address } from "viem";
 import { hardhat } from "viem/chains";
 import { useSwitchChain } from "wagmi";
 import { Bars3Icon, BugAntIcon } from "@heroicons/react/24/outline";
-import { Balance, FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
+import { FaucetButton } from "~~/components/scaffold-eth";
 import { useOutsideClick, useTargetNetwork } from "~~/hooks/scaffold-eth";
 
 type HeaderMenuLink = {
@@ -70,16 +67,7 @@ export const Header = () => {
     burgerMenuRef?.current?.removeAttribute("open");
   });
 
-  const { ready } = usePrivy();
-
   const { switchChain } = useSwitchChain();
-
-  const { login } = useLogin({
-    onComplete: () => {
-      switchChain?.({ chainId: 8453 });
-    },
-  });
-  const { authenticated, user, logout } = usePrivy();
 
   return (
     <div className="sticky lg:static top-0 navbar bg-base-100 min-h-0 shrink-0 justify-between z-20 shadow-md shadow-secondary px-0 sm:px-2">
@@ -111,22 +99,6 @@ export const Header = () => {
         </ul>
       </div>
       <div className="navbar-end grow mr-4">
-        {/* {ready && !authenticated && (
-          <button className="btn btn-primary btn-sm" type="button" onClick={() => login()}>
-            Login with Privy
-          </button>
-        )}
-        {ready && authenticated && (
-          <div className="flex items-center justify-center gap-2">
-            <p>{user?.email?.address}</p> <p>({user?.wallet?.address})</p>
-            <button className="btn btn-primary btn-sm" type="button" onClick={() => logout()}>
-              Logout
-            </button>
-          </div>
-        )}
-        {!ready && <p>"Initializing Privy..."</p>} */}
-
-        {/* <Balance address={user?.wallet?.address as Address} /> */}
         <PrivyCustomConnectButton />
         {isLocalNetwork && <FaucetButton />}
       </div>
