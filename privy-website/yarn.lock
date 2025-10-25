@@ -3438,6 +3438,7 @@ __metadata:
     react: ~19.0.0
     react-dom: ~19.0.0
     react-hot-toast: ~2.4.0
+    react-unity-webgl: ^10.1.6
     tailwindcss: 4.1.3
     type-fest: ~4.26.1
     typescript: ~5.8.2
@@ -12759,6 +12760,15 @@ __metadata:
     "@types/react":
       optional: true
   checksum: a7b0bf493c9231065ebafa84c4237aed997c746c561196121b7de82fe155a5355b372db5070a3ac9fe980cf7f60dc0f1e8cf6402a2aa5b2957392932ccf76e76
+  languageName: node
+  linkType: hard
+
+"react-unity-webgl@npm:^10.1.6":
+  version: 10.1.6
+  resolution: "react-unity-webgl@npm:10.1.6"
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: 95dc1c8be1574a9a555971e5bcd9e897b82c9db3856e55f51c85c12338b9834160adfbf9ff2cb84277331578f0e7fdea3fac07c52997231751bfff0c4cb0f181
   languageName: node
   linkType: hard
 
