@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import type { NextPage } from "next";
 import { useAccount } from "wagmi";
-import { Address } from "~~/components/scaffold-eth";
 import { useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
 import { useScaffoldReadContract } from "~~/hooks/scaffold-eth";
 
@@ -130,12 +129,8 @@ const Home: NextPage = () => {
         <div className="px-5">
           <h1 className="text-center">
             <span className="block text-2xl mb-2">Welcome to</span>
-            <span className="block text-4xl font-bold">Scaffold-ETH 2</span>
+            <span className="block text-4xl font-bold">Privy Unity Experience</span>
           </h1>
-          <div className="flex justify-center items-center space-x-2 flex-col">
-            <p className="my-2 font-medium">Connected Address:</p>
-            <Address address={connectedAddress} />
-          </div>
 
           <div className="px-5">
             {/* NFT Metadata Display */}
@@ -200,7 +195,7 @@ const Home: NextPage = () => {
                         disabled={!connectedAddress}
                         className="btn btn-primary"
                       >
-                        Mint
+                        Buy
                       </button>
                     </div>
                   </div>
@@ -264,7 +259,7 @@ const Home: NextPage = () => {
                         disabled={!connectedAddress}
                         className="btn btn-secondary"
                       >
-                        Mint
+                        Buy
                       </button>
                     </div>
                   </div>
@@ -328,7 +323,7 @@ const Home: NextPage = () => {
                         disabled={!connectedAddress}
                         className="btn btn-accent"
                       >
-                        Mint
+                        Buy
                       </button>
                     </div>
                   </div>

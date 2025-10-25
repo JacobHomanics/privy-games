@@ -7,14 +7,12 @@ import {
   ArrowLeftOnRectangleIcon,
   ArrowTopRightOnSquareIcon,
   ArrowsRightLeftIcon,
-  CheckCircleIcon,
   ChevronDownIcon,
-  DocumentDuplicateIcon,
   EyeIcon,
   QrCodeIcon,
 } from "@heroicons/react/24/outline";
-import { BlockieAvatar, isENS } from "~~/components/scaffold-eth";
-import { useCopyToClipboard, useOutsideClick } from "~~/hooks/scaffold-eth";
+import { BlockieAvatar } from "~~/components/scaffold-eth";
+import { useOutsideClick } from "~~/hooks/scaffold-eth";
 import { getTargetNetworks } from "~~/utils/scaffold-eth";
 
 const BURNER_WALLET_ID = "burnerWallet";
@@ -38,8 +36,6 @@ export const AddressInfoDropdown = ({
   const { connector } = useAccount();
   const checkSumAddress = getAddress(address);
 
-  const { copyToClipboard: copyAddressToClipboard, isCopiedToClipboard: isAddressCopiedToClipboard } =
-    useCopyToClipboard();
   const [selectingNetwork, setSelectingNetwork] = useState(false);
   const dropdownRef = useRef<HTMLDetailsElement>(null);
 
